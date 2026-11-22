@@ -33,29 +33,50 @@ All site text and cards are in `index.html`. Open the file in a text editor, fin
 | Layout, colors and fonts | `style.css` → `:root` variables and section styles |
 | Navigation, filtering, reveal effects | `script.js` |
 
-### Add a new achievement
+### Upload your public files
 
-1. Upload the real certificate image or PDF into `assets/certificates/`, e.g. `my-award-2027.pdf`.
-2. In `index.html`, find `achievement-grid` and duplicate one `<article class="achievement-card ..."> ... </article>` block.
-3. Update the award title, year, description, organization, and `data-category="academic"` or `data-category="debating"`.
-4. Replace `<span class="certificate-note">Certificate coming soon</span>` with `<a class="certificate-link" href="assets/certificates/my-award-2027.pdf" target="_blank" rel="noopener noreferrer">View certificate ↗</a>`.
-5. Optionally add this to `style.css`:
-   `.certificate-link { color: var(--navy); font-size: 11px; font-weight: 750; text-decoration: underline; }`
-6. Commit the files in GitHub. Certificate links will work automatically.
+All paths are relative to the repository root and are case-sensitive. In GitHub, open the destination folder and use **Add file → Upload files**, or place the files at these paths in your local checkout and commit them.
+
+| File | Upload path |
+|---|---|
+| Profile photo | `assets/photos/portrait.jpg` |
+| Public CV PDF | `assets/Md-Kamrujjaman-CV.pdf` |
+| Achievement photo | `assets/photos/achievements/<award-slug>.jpg` |
+| PDF certificate | `assets/certificates/<award-slug>.pdf` |
+
+Replace the portrait with a JPEG at the same path. If the dimensions or framing change, update its `width` and `height` in `index.html` and adjust `.portrait-frame img` in `style.css` as needed. Both CV buttons use the same PDF path. Replace the included German short-form CV with a version you have reviewed for public distribution.
+
+### Add an achievement photo or certificate
+
+1. Upload your files at the paths above, creating the folders if needed. Use a distinct lowercase filename for each award, such as `deutschlandstipendium.jpg` and `deutschlandstipendium.pdf`.
+2. In `index.html`, find the corresponding `achievement-card` inside `achievement-grid`. For a new award, duplicate a card, update its content, and set `data-category` to `academic` or `debating`.
+3. To display a photo, insert the following before the card footer and describe the actual photo in the `alt` text.
+
+   ```html
+   <img class="achievement-photo"
+        src="assets/photos/achievements/deutschlandstipendium.jpg"
+        alt="Describe the achievement photo"
+        loading="lazy">
+   ```
+
+4. For a PDF, replace the card's `Certificate coming soon` span inside the footer with the link below. Use the actual award name in the accessible label.
+
+   ```html
+   <a class="certificate-link" href="assets/certificates/deutschlandstipendium.pdf"
+      aria-label="View Deutschlandstipendium certificate (PDF)">
+     View certificate (PDF)
+   </a>
+   ```
+
+5. Preview the page and commit the uploaded files together with the HTML. Each card can have a photo, a PDF, or both.
 
 ### Add a new project
 
 Duplicate a `project-card` article inside `projects-grid`. Replace all descriptions and tags. Only describe completed research as completed if you have actual evidence/output. For a real PDF output, add an `<a>` pointing to an `assets/` document.
 
-### Change your portrait or add photos
-
-Replace `assets/photos/portrait.jpg` with a new image of exactly the same filename or change the `src` attribute in the hero image. For event images, place them in `assets/photos/` and add `<img src="assets/photos/filename.jpg" alt="Description of the event" loading="lazy">` to the desired card.
-
 ## Source integrity and privacy notes
 
 - Drafted from your two supplied CVs and Deutschlandstipendium motivation letter, plus the academic project title and other context you supplied.
-- The formal suit portrait is included. Other provided image is stored under `assets/photos/casual.jpg` and is not displayed publicly by default.
-- **The one-page job-oriented CV is included for download**, not the more detailed German CV that contains your passport number, full residential address and date of birth. Publishing passport numbers, full home addresses or matriculation numbers openly is discouraged. If you replace the public CV, review it first.
 - The source CVs differ on the exact beginning and ending dates of certain academic studies. The site deliberately omits those conflicting dates.
 - Awards without uploaded evidence are marked 'Certificate coming soon'; no invented certificates or credentials.
 - Research interest in behavioral economics is labeled as an interest, not a finished study.
