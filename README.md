@@ -4,7 +4,7 @@ A complete static portfolio built with plain HTML, CSS, and JavaScript. No accou
 
 ## Preview on your computer
 
-Open `index.html` in any modern web browser. The site is fully static and works directly from local files. Alternatively use a simple local server: `python3 -m http.server 8000` from this folder, then visit http://localhost:8000.
+Open `index.html` in any modern web browser. The site is fully static and works directly from local files. Space Grotesk, Inter, and JetBrains Mono are served locally. Their licenses are in `assets/fonts/`. Alternatively use a simple local server: `python3 -m http.server 8000` from this folder, then visit http://localhost:8000.
 
 ## Publish to GitHub Pages for free
 
@@ -28,10 +28,11 @@ All site text and cards are in `index.html`. Open the file in a text editor, fin
 | Leadership & employment | `index.html` → `id="experience"` |
 | Research/projects | `index.html` → `id="research"` |
 | Skills and languages | `index.html` → `id="skills"` |
+| Achievement gallery | `achievements.js` |
 | CV download | `assets/Md-Kamrujjaman-CV.pdf` (replace with the latest PDF using the same name) |
 | Email and social links | `index.html` → `id="contact"` |
 | Layout, colors and fonts | `style.css` → `:root` variables and section styles |
-| Navigation, filtering, reveal effects | `script.js` |
+| Navigation, theme, filtering, reveal effects | `script.js` |
 
 ### Upload your public files
 
@@ -46,33 +47,31 @@ All paths are relative to the repository root and are case-sensitive. In GitHub,
 
 Replace the portrait with a JPEG at the same path. If the dimensions or framing change, update its `width` and `height` in `index.html` and adjust `.portrait-frame img` in `style.css` as needed. Both CV buttons use the same PDF path. Replace the included German short-form CV with a version you have reviewed for public distribution.
 
-### Add an achievement photo or certificate
+### Add an achievement
 
-1. Upload your files at the paths above, creating the folders if needed. Use a distinct lowercase filename for each award, such as `deutschlandstipendium.jpg` and `deutschlandstipendium.pdf`.
-2. In `index.html`, find the corresponding `achievement-card` inside `achievement-grid`. For a new award, duplicate a card, update its content, and set `data-category` to `academic` or `debating`.
-3. To display a photo, insert the following before the card footer and describe the actual photo in the `alt` text.
+Add one entry to the array in `achievements.js`. Enter the award, organization and date as they appear in your records. Categories include `academic`, `debating`, `leadership`, `volunteering`, and `certifications`. A filter appears when at least one entry uses that category.
 
-   ```html
-   <img class="achievement-photo"
-        src="assets/photos/achievements/deutschlandstipendium.jpg"
-        alt="Describe the achievement photo"
-        loading="lazy">
-   ```
+```js
+{
+  category: "academic",
+  title: "Award name",
+  date: "2026",
+  organization: "Awarding organization",
+  description: "A short, verified summary.",
+  details: "Optional longer text for the detail view.",
+  photo: {
+    src: "assets/photos/achievements/example-award.jpg",
+    alt: "Describe the actual photograph."
+  },
+  certificate: "assets/certificates/example-award.pdf"
+}
+```
 
-4. For a PDF, replace the card's `Certificate coming soon` span inside the footer with the link below. Use the actual award name in the accessible label.
-
-   ```html
-   <a class="certificate-link" href="assets/certificates/deutschlandstipendium.pdf"
-      aria-label="View Deutschlandstipendium certificate (PDF)">
-     View certificate (PDF)
-   </a>
-   ```
-
-5. Preview the page and commit the uploaded files together with the HTML. Each card can have a photo, a PDF, or both.
+Omit `details`, `photo`, or `certificate` when unavailable. Upload any referenced media to the matching paths before committing. Review certificates for personal information before making them public.
 
 ### Add a new project
 
-Duplicate a `project-card` article inside `projects-grid`. Replace all descriptions and tags. Only describe completed research as completed if you have actual evidence/output. For a real PDF output, add an `<a>` pointing to an `assets/` document.
+Duplicate a `project-card` in `index.html`. Update its status, question, methods and tools, and outcome. Label unpublished material accordingly. Add charts and data sources only when you have real data to share.
 
 ## Source integrity and privacy notes
 
@@ -81,7 +80,7 @@ Duplicate a `project-card` article inside `projects-grid`. Replace all descripti
 - Awards without uploaded evidence are marked 'Certificate coming soon'; no invented certificates or credentials.
 - Research interest in behavioral economics is labeled as an interest, not a finished study.
 - Academic software and statistics are not overstated as expert skills.
-- No analytics, cookies, tracking scripts, remote fonts, or third-party dependencies are used. External social links lead to their respective services.
+- The selected theme is stored locally in the browser. External social links lead to their respective services.
 
 ## Before publishing
 
