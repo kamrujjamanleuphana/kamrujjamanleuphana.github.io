@@ -10,29 +10,29 @@ Open `index.html` in any modern web browser. The site is fully static and works 
 
 1. Create a free GitHub account if you do not already have one.
 2. Create a **public** repository named `yourusername.github.io` (replace `yourusername` with your exact GitHub username), or choose another repository name such as `portfolio`.
-3. Upload **everything inside this folder** to the repository's root: `index.html`, `style.css`, `script.js`, `assets/`, and `README.md`. Don't upload only the ZIP.
+3. Upload the site’s HTML, CSS, and JavaScript files and the `assets/` directory to the repository root. Don't upload only the ZIP.
 4. Go to **Settings → Pages → Build and deployment**. Choose **Deploy from a branch**, `main`, `/ (root)` and **Save**.
 5. Your address will be `https://yourusername.github.io/` for a username-named repository or `https://yourusername.github.io/portfolio/` for a project repository. GitHub Pages deployment can take a few minutes.
 6. Update your site later by editing files in the repository and committing the changes. GitHub will publish your changes automatically.
 
 ## Update each section
 
-All site text and cards are in `index.html`. Open the file in a text editor, find the HTML section using its `id`, edit the words and save/upload it.
+The homepage is in `index.html`. Each detail page has its own HTML file. The pages share a stylesheet and the same header navigation. Update the navigation in each HTML file if you rename a page.
 
 | Content | Where to edit |
 |---|---|
 | Home headline, intro, links | `index.html` → `<section id="home">` |
-| About / story and goals | `index.html` → `id="about"` |
-| Education and credentials | `index.html` → `id="education"` |
-| Awards and certificates | `index.html` → `id="achievements"` |
-| Leadership & employment | `index.html` → `id="experience"` |
-| Research/projects | `index.html` → `id="research"` |
-| Skills and languages | `index.html` → `id="skills"` |
-| Achievement gallery | `achievements.js` |
+| About / story and goals | `about.html` |
+| Education and credentials | `education.html` |
+| Awards and certificates | `achievements.html` |
+| Leadership & employment | `experience.html` |
+| Research/projects | `projects.html` |
+| Skills and languages | `skills.html` |
+| Achievement records and gallery behavior | `achievements.js` and `gallery.js` |
 | CV download | `assets/Md-Kamrujjaman-CV.pdf` (replace with the latest PDF using the same name) |
-| Email and social links | `index.html` → `id="contact"` |
+| Email and social links | `contact.html` |
 | Layout, colors and fonts | `style.css` → `:root` variables and section styles |
-| Navigation, theme, filtering, reveal effects | `script.js` |
+| Navigation, theme, reveal effects | `script.js` |
 
 ### Upload your public files
 
@@ -71,7 +71,7 @@ Omit `details`, `photo`, or `certificate` when unavailable. Upload any reference
 
 ### Add a new project
 
-Duplicate a `project-card` in `index.html`. Update its status, question, methods and tools, and outcome. Label unpublished material accordingly. Add charts and data sources only when you have real data to share.
+Duplicate a `project-card` in `projects.html`. Update its status, question, methods and tools, and outcome. Label unpublished material accordingly. Add charts and data sources only when you have real data to share.
 
 ## Source integrity and privacy notes
 
