@@ -45,7 +45,7 @@ All paths are relative to the repository root and are case-sensitive. In GitHub,
 | Achievement photo | `assets/photos/achievements/<award-slug>.jpg` |
 | PDF certificate | `assets/certificates/<award-slug>.pdf` |
 
-Replace the portrait with a JPEG at the same path. If the dimensions or framing change, update its `width` and `height` in `index.html` and adjust `.portrait-frame img` in `style.css` as needed. Both CV buttons use the same PDF path. Replace the included German short-form CV with a version you have reviewed for public distribution.
+Replace the portrait with a JPEG at the same path. If the dimensions or framing change, update its `width` and `height` in `index.html` and adjust `.portrait-frame img` in `style.css` as needed. Both CV buttons use the same PDF path. Replace the included German CV with a version you have reviewed for public distribution.
 
 ### Add an achievement
 
