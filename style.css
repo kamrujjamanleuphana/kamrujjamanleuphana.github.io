@@ -97,9 +97,10 @@ strong { color: var(--text); }
 .hero-profile { display: grid; max-width: 640px; gap: clamp(1.25rem, 3vw, 2rem); padding-bottom: clamp(1.75rem, 5vw, 4rem); }
 .section-index, .edu-year, .edu-place, .experience-type, .chip, .image-caption, .project-facts dt { font: 600 .73rem/1.5 var(--mono); letter-spacing: .07em; text-transform: uppercase; }
 .hero-lead { max-width: 56ch; font-size: clamp(1rem, 1.4vw, 1.16rem); }
+.hero-lead p + p { margin-top: .85rem; }
 .hero-actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: .7rem; }
 .hero-actions .button { min-height: 60px; justify-content: center; padding-inline: clamp(.8rem, 1.7vw, 1.45rem); border-radius: 13px; font: 700 clamp(1rem, 1.3vw, 1.28rem)/1.2 var(--heading); }
-.hero-actions .button-dark { box-shadow: 0 8px 28px var(--glow); }
+.hero-actions #education { font-weight: 400; }
 .hero-actions .button-outline { background: color-mix(in srgb, var(--panel) 92%, var(--blue)); }
 .hero-actions .button:target { border-color: var(--cyan); }
 .button { display: inline-flex; align-items: center; gap: .7rem; min-height: 46px; background: var(--panel); border: 1px solid var(--line); border-radius: 9px; padding: .55rem .95rem; color: var(--text); font-size: .85rem; font-weight: 700; text-decoration: none; transition: border-color .2s, transform .2s; }
