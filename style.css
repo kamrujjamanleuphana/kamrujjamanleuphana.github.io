@@ -107,7 +107,7 @@ strong { color: var(--text); }
 .button:hover, .button:focus-visible { border-color: var(--cyan); transform: translateY(-2px); }
 .hero-visual { padding: .65rem; border: 1px solid var(--line); border-radius: 22px; background: var(--panel); box-shadow: 0 22px 70px var(--glow); }
 .portrait-frame { aspect-ratio: 1 / 1.09; overflow: hidden; border-radius: 15px; background: var(--bg); }
-.portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 20% 40%; }
+.portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 12%; }
 .image-caption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .35rem .8rem; padding: .85rem .35rem .25rem; color: var(--muted); font-size: .65rem; }
 .image-caption span:first-child { color: var(--cyan); }
 .hero-bottom { margin-top: clamp(3rem, 6vw, 6rem); border-top: 1px solid var(--line); padding-block: 1.1rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem; }
